@@ -9,7 +9,7 @@ function engine_init()
 	base_z = 0x20
 
 	tile_update()
-	
+
 	-- load map
 	map = map_load(require "maps.map_1")
 
@@ -28,9 +28,9 @@ function engine_run()
 --NEW ROTATION
 		local min_gy = 1
 		local max_gy = #map[gz]
-		
+
 		if map_Y == -1 then
-		
+
 			min_gy, max_gy = max_gy, min_gy
 		end
 
@@ -40,7 +40,7 @@ function engine_run()
 			local max_gx = #map[gz][gy]
 
 			if map_X == -1 then
-			
+
 				min_gx, max_gx = max_gx, min_gx
 			end
 
@@ -75,7 +75,7 @@ function camera_rotate(d, dt)
 	factor_w = factor_w + d * dt
 	factor_h = factor_h + d * dt * 4
 	factor_z = factor_z - d * dt / 4
-	
+
 	tile_update()
 end
 
@@ -84,7 +84,7 @@ end
 function camera_zoom(d, dt)
 
 	zoom = zoom * (1 + d * dt)
-	
+
 	tile_update()
 end
 
@@ -92,12 +92,12 @@ end
 function rhombi(x, y)
 
 	return
-	
+
 	x + tile_w, y + tile_z/2,
 	x, y + tile_h + tile_z/2,
 	x - tile_w, y + tile_z/2,
 	x, y - tile_h + tile_z/2,
-	
+
 	x + tile_w, y - tile_z/2,
 	x, y + tile_h - tile_z/2,
 	x - tile_w, y - tile_z/2,
@@ -113,7 +113,7 @@ function offset(x, y)
 		player.gy,
 		player.gz
 	)
-	
+
 	return
 
 	-- center on player
@@ -141,7 +141,7 @@ end
 function block_getValue(gx, gy, gz)
 
 	return
-	
+
 	map[gz] and
 	map[gz][gy] and
 	map[gz][gy][gx]
@@ -169,9 +169,9 @@ function getDist(x, y, z)
 	player.gx - x,
 	player.gy - y,
 	player.gz - z
-	
+
 	return math.sqrt(
-	
+
 		dx * dx +
 		dy * dy +
 		dz * dz
