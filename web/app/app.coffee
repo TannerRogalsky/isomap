@@ -2,7 +2,7 @@ express = require 'express'
 http = require 'http'
 app = express()
 
-PORT = 8000
+PORT = 8044
 PORT_TEST = PORT + 1
 
 app.configure ->
