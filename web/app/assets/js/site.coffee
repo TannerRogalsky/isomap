@@ -1,6 +1,7 @@
 #= require vendor/jquery.js
 #= require vendor/bootstrap.js
 #= require_tree shared
+#= require_tree app
 
 $ ->
   main()
